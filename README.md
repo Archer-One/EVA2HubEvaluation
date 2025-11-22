@@ -1,14 +1,12 @@
 # EVA2HubEvaluation
 
 ## Abstract
-Blockchain technology has facilitated the global rise of cryptocurrencies, yet scalability and privacy remain significant challenges to their widespread adoption. The Payment Channel Hub (PCH) is a promising off-chain approach that enables rapid transactions between users via an untrusted intermediary, often referred to as a tumbler. However, existing PCH constructions typically suffer from critical limitations, including privacy leakage, limited support for variable or bidirectional payments, and susceptibility to abort and griefing attacks.
-
-This paper introduces $\evaahub$, a new PCH scheme designed to overcome these challenges. The construction integrates three core components: Double-Blind Signatures ($\dbsign$), a Double-Base Zero-Knowledge Range Argument ($\dbzkra$), and a customized puzzle-based protocol. The $\dbsign$ primitive applies double blinding to messages, allowing privacy-preserving off-chain payments of arbitrary amounts. The $\dbzkra$ enables efficient verification of hidden payment values without revealing them to the tumbler. The tailored puzzle mechanism eliminates the need for conditional payments between the payee and tumbler in the puzzle-promising phase, thereby mitigating abort and griefing risks.
-
-We formally analyze $\evaahub$ within the Universal Composability framework, demonstrating that it achieves atomicity, relationship anonymity, value privacy, and balance security. A prototype implementation on Ethereum shows that $\evaahub$ incurs low computational and communication overhead, making it practical for real-world deployment.
+Off-chain payment channel hubs (PCHs) promise high-throughput cryptocurrency payments via untrusted intermediaries, but existing designs either leak payer–payee relationships or payment values, restrict payments to fixed denominations or one direction, or allow griefing and abort attacks that lock honest users’ funds. We present $\evaahub$, a PCH protocol that simultaneously supports variable-amount payments, two-sided value privacy, relationship anonymity, and robustness to griefing and aborts. $\evaahub$ combines a double-blind signature scheme ($\dbsign$) that authorizes arbitrary payment updates without letting the hub link payments to users, a double-base zero-knowledge range argument ($\dbzkra$) tailored to hidden channel balances, and a new PCH payment mechanism with resistance to aforementioned attacks. We formalize the security of $\evaahub$ in the Universal Composability (UC) framework and prove that it realizes an ideal functionality capturing atomicity, value privacy, balance security, and anonymity against a malicious hub and corrupted users. A prototype implementation on Ethereum shows that $\evaahub$ incurs low computational and communication overhead, making it practical for real-world deployment.
 
 ## Testbed
 - unbuntu 18.04
 - java
 - rust
   
+# Supplementary Material for Security Analysis
+- Security_Proof.pdf
